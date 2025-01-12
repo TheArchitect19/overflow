@@ -5,35 +5,41 @@ import { IconSquareRoundedX } from "@tabler/icons-react";
 
 const loadingStates = [
   {
-    text: "Buying a condo",
+    text: "Scanning resume",
   },
   {
-    text: "Travelling in a flight",
+    text: "Reviewing skills",
   },
   {
-    text: "Meeting Tyler Durden",
+    text: "Analyzing experience",
   },
   {
-    text: "He makes soap",
+    text: "Assessing qualifications",
   },
   {
-    text: "We goto a bar",
+    text: "Verifying references",
   },
   {
-    text: "Start a fight",
+    text: "Cross-checking achievements",
   },
   {
-    text: "We like it",
+    text: "Matching job requirements",
   },
   {
-    text: "Welcome to F**** C***",
+    text: "Generating recommendations",
+  },
+  {
+    text: "Processing completed",
+  },
+  {
+    text: "Resume ready for review",
   },
 ];
 
 export function StepLoading() {
   const [loading, setLoading] = useState(false);
   return (
-    <div className="w-full h-[60vh] flex items-center justify-center">
+    <div className="w-full flex items-center justify-center">
       {/* Core Loader Modal */}
       <Loader loadingStates={loadingStates} loading={loading} duration={2000} />
 

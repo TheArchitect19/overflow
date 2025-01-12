@@ -1,62 +1,98 @@
-import { IsEmail, IsArray, ValidateNested, IsInt, Min, IsString, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { IsEmail, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
 
-class EmailEntryDTO {
+export class RegisterUserDto {
   @ApiProperty({
-    description: 'Email address in the email list',
-    type: String,
+    description: 'First name of the user',
+    example: 'Ayush',
   })
+  @IsNotEmpty()
+  @IsString()
+  firstName: string;
+
+  @ApiProperty({
+    description: 'Last name of the user',
+    example: 'Kumar',
+  })
+  @IsNotEmpty()
+  @IsString()
+  lastName: string;
+
+  @ApiProperty({
+    description: 'Batch of the user',
+    example: '2025',
+  })
+  @IsNotEmpty()
+  @IsString()
+  batch: string;
+
+  @ApiProperty({
+    description: 'College of the user',
+    example: 'IIT Delhi',
+  })
+  @IsNotEmpty()
+  @IsString()
+  college: string;
+
+  @ApiProperty({
+    description: 'Short bio of the user (optional)',
+    example: 'Aspiring software engineer passionate about web development.',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  bio?: string;
+
+  @ApiProperty({
+    description: 'LinkedIn profile URL of the user (optional)',
+    example: 'https://linkedin.com/in/ayushkumar',
+    required: false,
+  })
+  @IsOptional()
+  @IsUrl()
+  linkedinProfile?: string;
+
+  @ApiProperty({
+    description: 'Profile image URL of the user (optional)',
+    example: 'https://example.com/images/ayush.png',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  profileImage?: string;
+
+  @ApiProperty({
+    description: 'Email address of the user',
+    example: 'ayush.kumar@example.com',
+  })
+  @IsNotEmpty()
   @IsEmail()
   email: string;
 
   @ApiProperty({
-    description: 'Number of times this email can be used',
-    type: Number,
-    minimum: 0,
+    description: 'Password for the user account',
+    example: 'securepassword123',
   })
-  @IsInt()
-  @Min(0)
-  count: number;
+  @IsNotEmpty()
+  @IsString()
+  password: string;
 }
 
-export class UpdateUserDTO {
+
+export class LoginUserDto {
   @ApiProperty({
-    description: 'Primary email of the user',
-    type: String,
+    description: 'Email address of the user',
+    example: 'ayush.kumar@example.com',
   })
+  @IsNotEmpty()
   @IsEmail()
   email: string;
 
   @ApiProperty({
-    description: 'Number of times this email can be used',
-    type: Number,
-    minimum: 0,
+    description: 'Password for the user account',
+    example: 'securepassword123',
   })
-  @IsInt()
-  @Min(0)
-  count: number;
-  
-  @ApiProperty({ description: 'Name of the person' })
-  @IsString()
   @IsNotEmpty()
-  name: string;
-
-  @ApiProperty({ description: 'Position of the person' })
   @IsString()
-  @IsNotEmpty()
-  position: string;
-
-  @ApiProperty({ description: 'Signature of the person' })
-  @IsString()
-  @IsNotEmpty()
-  signature: string;
-}
-
-export class UpdateEmailEntryDto {
-  email?: string;
-  count?: number;
-  name?: string;
-  position?: string;
-  signature?: string;
+  password: string;
 }

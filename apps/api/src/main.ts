@@ -13,8 +13,8 @@ async function bootstrap() {
   app.use(bodyParser.text({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
   const config = new DocumentBuilder()
-    .setTitle('thinking')
-    .setDescription('API for the thinking.')
+    .setTitle('overflow')
+    .setDescription('API for the overflow.')
     .setVersion('1.0')
     .addTag('nestjs')
     .addBearerAuth() // for auth

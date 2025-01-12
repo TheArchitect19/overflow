@@ -1,168 +1,83 @@
 import {
-  Controller,
-  Get,
   Body,
+  Controller,
+  Post,
   Patch,
-  Delete,
-  HttpStatus,
-  Res,
   UseGuards,
   Req,
-  Put,
-  Param,
-  NotFoundException,
+  Res,
+  HttpStatus,
+  Delete,
 } from '@nestjs/common';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserService } from './user.service';
+import { RegisterUserDto, LoginUserDto} from './dto/user.dto';
 import { Response } from 'express';
+import { MockInterviewService } from 'src/services/mock-interview/mock-interview.service';
+import { CreateMockInterviewDto } from 'src/services/mock-interview/dto/mock-interview.dto';
 import OK from 'response/Ok';
-import { UpdateEmailEntryDto, UpdateUserDTO } from './dto/user.dto';
 import errorHandler from 'http/httpErrorHandler';
-import { AuthGuard } from '../auth/auth.guard';
-import {
-  ApiTags,
-  ApiOperation,
-  ApiResponse,
-  ApiBearerAuth,
-} from '@nestjs/swagger';
 
-@ApiTags('User')
-@Controller('user')
+@ApiTags('Users')
+@Controller('users')
 export class UserController {
-  constructor(private readonly userService: UserService) { }
+  constructor(
+    private readonly userService: UserService,
+    private readonly mockInterviewService: MockInterviewService
+  ) { }
 
-  @Get('all')
-  @ApiOperation({
-    summary: 'Get all users',
-    description: 'Endpoint to retrieve all users.',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns an array of users.',
-  })
-  async findAll(@Res() res: Response) {
+  @Post('register')
+  @ApiOperation({ summary: 'Register a new user' })
+  @ApiResponse({ status: 201, description: 'User registered successfully' })
+  async register(@Body() registerUserDto: RegisterUserDto, @Res() res: Response) {
     try {
-      const data = await this.userService.findAll();
-      return OK(res, 'Success', data, HttpStatus.OK);
+      const user = await this.userService.registerUser(registerUserDto);
+      return res.status(HttpStatus.CREATED).json({ message: 'User registered successfully', user });
     } catch (error) {
-      return errorHandler(error, res);
+      return res.status(HttpStatus.BAD_REQUEST).json({ message: error.message });
     }
   }
 
-  @Get('')
-  @ApiOperation({
-    summary: 'Get a user',
-    description: 'Endpoint to retrieve a user.',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns the user.',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard)
-  async findOne(@Res() res: Response, @Req() req) {
+  @Post('login')
+  @ApiOperation({ summary: 'Login a user' })
+  @ApiResponse({ status: 200, description: 'User logged in successfully' })
+  async login(@Body() loginUserDto: LoginUserDto, @Res() res: Response) {
     try {
-      const id = req.user;
-      const data = await this.userService.findOne(id);
-      return OK(res, 'Success', data, HttpStatus.OK);
+      const user = await this.userService.loginUser(loginUserDto);
+      return res.status(HttpStatus.OK).json({ message: 'Login successful', user });
     } catch (error) {
-      return errorHandler(error, res);
+      return res.status(HttpStatus.UNAUTHORIZED).json({ message: error.message });
     }
   }
 
-  @Patch('')
+  @Post('request-interview')
   @ApiOperation({
-    summary: 'Update a user',
-    description: 'Endpoint to update a user.',
+    summary: 'Request a mock interview',
+    description: 'User requests an interview with an instructor.',
   })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns the updated user.',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard)
-  async update(@Res() res: Response, @Req() req, @Body() body: UpdateUserDTO) {
-    try {
-      const id = req.user;
-      const data = await this.userService.update(id, body);
-      return OK(res, 'Success', data, HttpStatus.OK);
-    } catch (error) {
-      return errorHandler(error, res);
-    }
-  }
-
-  @Delete('')
-  @ApiOperation({
-    summary: 'Delete a user',
-    description: 'Endpoint to delete a user.',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns the deleted user.',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard)
-  async remove(@Res() res: Response, @Req() req) {
-    try {
-      const id = req.user;
-      const data = await this.userService.remove(id);
-      return OK(res, 'Success', data, HttpStatus.OK);
-    } catch (error) {
-      return errorHandler(error, res);
-    }
-  }
-
-  @Put('/emailList/:emailEntryId')
-  @ApiOperation({
-    summary: 'Update a email list',
-    description: 'Endpoint to update email list.',
-  })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns the updated list.',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard)
-  async updateEmailEntry(
+  async requestMockInterview(
     @Res() res: Response,
-    @Req() req,
-    @Param('emailEntryId') emailEntryId: string,
-    @Body() updateData: UpdateEmailEntryDto,
+    @Body() createMockInterviewDto: CreateMockInterviewDto,
   ) {
     try {
-      const {_id} = req.user;
-      const data = await this.userService.updateEmailEntry(_id, emailEntryId, updateData);
-      return OK(res, 'Success', data, HttpStatus.OK)
-    }
-    catch (error) {
+      const data = await this.mockInterviewService.createRequest(createMockInterviewDto);
+      return OK(res, 'Success', data, HttpStatus.CREATED);
+    } catch (error) {
       return errorHandler(error, res);
     }
   }
 
-
-
-  @Delete('/emailList/:emailEntryId')
+  @Delete('cancel-interview')
   @ApiOperation({
-    summary: 'Delete an email from email list',
-    description: 'Endpoint to delete an email from email list.',
+    summary: 'Cancel a mock interview request',
+    description: 'User cancels a previously requested interview.',
   })
-  @ApiResponse({
-    status: 200,
-    description: 'Returns the updated list.',
-  })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard)
-  async deleteEmailEntry(
-    @Res() res: Response,
-    @Req() req,
-    @Param('emailEntryId') emailEntryId: string,
-  ) {
+  async cancelMockInterview(@Res() res: Response, @Body('requestId') requestId: string) {
     try {
-      const {_id} = req.user;
-      const updatedUser = await this.userService.deleteEmailEntry(_id, emailEntryId);
-      return OK(res, 'Success', updatedUser, HttpStatus.OK)
+      const data = await this.mockInterviewService.remove(requestId);
+      return OK(res, 'Success', data, HttpStatus.OK);
     } catch (error) {
       return errorHandler(error, res);
     }
-
   }
 }

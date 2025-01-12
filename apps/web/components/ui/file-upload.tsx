@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
+import { StepLoading } from "../ats/loading";
 
 const mainVariant = {
   initial: {
@@ -52,7 +53,10 @@ export const FileUpload = ({
   });
 
   return (
-    <div className="w-full" {...getRootProps()}>
+    <div
+      className="w-full h-full flex justify-center items-center flex-col "
+      {...getRootProps()}
+    >
       <motion.div
         onClick={handleClick}
         whileHover="animate"
@@ -120,7 +124,7 @@ export const FileUpload = ({
                       animate={{ opacity: 1 }}
                       layout
                     >
-                      modified{" "}
+                      modified
                       {new Date(file.lastModified).toLocaleDateString()}
                     </motion.p>
                   </div>
@@ -164,6 +168,8 @@ export const FileUpload = ({
           </div>
         </div>
       </motion.div>
+
+      <StepLoading />
     </div>
   );
 };

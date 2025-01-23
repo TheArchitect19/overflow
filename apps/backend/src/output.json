@@ -1,0 +1,134 @@
+{
+  "comparison_results": {
+    "educational_qualification": {
+      "required": "BA/BS degree or foreign equivalent",
+      "resume_match": "The resume mentions a B.Tech degree which is considered as equivalent to BA/BS degree",
+      "resume_missing": "",
+      "comment": "The candidate holds a B.Tech degree, which meets the educational requirement for this job."
+    },
+    "years_of_experience": {
+      "required": "6+ years of relevant experience",
+      "resume_match": "The resume mentions one Software Developer Intern role (May 2024 - June 2024) and other projects. Assuming the applicant is a recent graduate, and has no other work experiences apart from the intern, his total relevant experience might be less than 6 years.",
+      "resume_missing": "The resume does not explicitly show that the applicant has 6+ years of relevant work experience",
+      "comment": "The candidate's resume indicates experience as a Software Developer Intern and other projects, not matching the required 6+ years of experience. This might be a mismatch."
+    },
+    "problem_solving_skills": {
+        "required": "Strong problem solving skills",
+        "resume_match": "The resume mentions multiple projects where problem-solving skills would be essential for success like developing algorithms and recommendation engine. It is also highlighted under technical skills section",
+        "resume_missing": "",
+        "comment": "The candidate's project experiences and skill listings strongly suggest problem-solving abilities."
+    },
+   "technical_skills_business_problems": {
+      "required": "Experience using technical skills to solve real-world business problems",
+      "resume_match": "The candidate has showcased real world projects in E-Commerce, Health and Finance, all these are real world problem solving use cases",
+       "resume_missing": "",
+      "comment": "The projects in the resume clearly indicate that the applicant has utilized their technical skills in solving real-world business problems"
+    },
+    "programming_skills": {
+      "required": "Strong programming skills with JavaScript and one object-oriented language (e.g., Java, C#, Python)",
+      "resume_match": "The resume lists JavaScript and C++, as well as Python which meets the required criteria",
+      "resume_missing": "",
+      "comment": "The candidate possesses strong skills in JavaScript and object-oriented languages like C++, and python as required."
+    },
+     "data_modeling_skills": {
+      "required": "Data modeling (objects, fields and relationships; able to model 1:M and M:M relationships)",
+      "resume_match": "Although not explicitly mentioned, data modeling skills are essential for developing complex applications, such as the ones listed in projects section (E-commerce, health and trading apps) and the applicant has worked on MongoDB and SQL, which is an indication that the applicant is familiar with data modeling",
+      "resume_missing": "Explicit mention of experience with data modeling of 1:M and M:M relationships is missing.",
+      "comment":"The resume shows good experience with technologies which indirectly points to data modeling, although explicitly mentioned, it can be assumed"
+     },
+    "salesforce_certification_experience": {
+      "required": "Salesforce certifications and Platform development experience are a plus",
+      "resume_match": "The resume does not indicate any Salesforce certifications or explicit Platform development experience. However, the projects section contains many modern web development technologies that are relevant to the platform development.",
+      "resume_missing": "No Salesforce certifications or explicit Salesforce platform experience are mentioned.",
+      "comment":"The resume lacks evidence of prior Salesforce experience or certifications. The applicant might have to gain them during the onboarding process."
+    },
+    "customer_engagement_skills": {
+      "required": "Customer engagement/facilitation skills",
+      "resume_match": "The resume mentions leadership and team management experience, also he has worked on project development that involved customer engagement like E-commerce and Health-care application, indicating some level of customer engagement.",
+       "resume_missing": "The resume does not provide specific details or examples of customer engagement and facilitation skills",
+      "comment":"The candidate has displayed some indirect skills that can indicate that he has good customer engagement skills, but no specific experiences are mentioned"
+    },
+    "communication_skills": {
+      "required": "Strong communication skills, both written and verbal",
+      "resume_match": "Although not explicitly mentioned, the candidate has provided detail descriptions of their projects and experiences and has the good grasp over the written English, which indirectly indicates good communication skills",
+      "resume_missing": "No explicit mention or example of written or verbal communication skills.",
+      "comment":"The resume lacks specific examples of strong communication skills, but the content quality suggests that the candidate has strong written communication skills"
+    },
+     "independent_work_skills": {
+      "required": "Ability to work independently and be a self-starter",
+      "resume_match": "The resume is full of self-led projects where the candidate has developed full stack applications from the scratch and has played a major role in the projects as an individual contributor, this demonstrates the required skills",
+      "resume_missing": "",
+       "comment":"The projects listed on the resume showcase the candidate's ability to work independently and initiate projects."
+    },
+    "analytical_design_skills": {
+      "required": "Specializes in gathering and analyzing information and designing comprehensive solutions that are flexible and adaptable to clients’ needs",
+      "resume_match":"The resume mentions projects that involved researching and developing solutions, these projects include e-commerce, health-care and stock trading, indicating he can analyze, gather information and design solutions",
+      "resume_missing": "Specific mention of designing solutions for clients is not present.",
+       "comment":"The projects on the resume highlight the candidate's skills in information gathering, analysis, and solution design."
+    },
+    "innovative_skills": {
+      "required": "Cutting edge innovator who continually studies new technologies and functionality, and is involved in projects that push the capabilities of existing technologies",
+      "resume_match":"The applicant has mentioned several projects in the resume that involve cutting edge technologies like IPFS, blockchain, Machine Learning and many more. This shows the candidate is continuously involved in studying new technologies",
+      "resume_missing": "",
+      "comment":"The candidate has experience with new technologies, which indicates that they are an innovator."
+    },
+     "career_growth_potential": {
+      "required":"Strong potential to continue to grow in career to higher levels of Services or other positions at Salesforce",
+        "resume_match":"The candidate has shown initiative, learning and project execution skills, which is an indication that they have the potential to grow in higher levels of service. However, specific potential for Salesforce roles is missing",
+      "resume_missing":"Specific evidence about growing into Salesforce services role",
+      "comment": "The candidate has shown the ability to learn, take initiative and has good project execution skills, which indicate the growth potential, however, the potential to grow in SalesForce specifically, cannot be determined."
+
+    },
+   "presentation_skills": {
+      "required": "Strong presentation skills. Able to effectively present and defend point of view to a variety of audiences",
+      "resume_match": "No explicit experience of presentation skills is mentioned in the resume",
+        "resume_missing":"No specific examples of presentation skills are mentioned.",
+        "comment": "There's no information available on the candidate's presentation skills in the resume"
+   },
+    "salesforce_dev_experience": {
+      "required":"Prior Salesforce development experience (Apex programming language and Lightning Web Components) highly desired, but not required",
+      "resume_match": "No direct Apex or Lightning Web Components experience, as mentioned earlier. However the skills and projects showcase good proficiency with other Javascript frameworks.",
+      "resume_missing": "No Apex or Lightning Web Components experience",
+        "comment": "The resume lacks any experience with Apex and Lightning Web Components"
+    },
+     "other_technical_experience":{
+        "required":"Other highly desired, but not required, technical experience includes: JS Frameworks, SQL, APIs, Testing Tools, DevOps.",
+       "resume_match":"The resume has all of the required technical experience in the form of JS frameworks, SQL, APIs, Testing tools, and DevOps tools",
+         "resume_missing": "",
+       "comment":"The candidate possesses all of the optional technical skills like JS frameworks, SQL, API, Testing Tools and DevOps, which makes them a perfect candidate from a tech perspective"
+     },
+      "salesforce_certifications":{
+       "required":"Highly beneficial to have any Salesforce product certifications prior to joining. It is expected that you will gain the following certifications as part of the role requirement and on-boarding process in the first 3 months: Salesforce Certified Administrator, Salesforce Certified Platform App Builder, Salesforce Certified Platform Developer I, Salesforce Certified JavaScript Developer I",
+         "resume_match": "The resume does not mention any Salesforce certification, the applicant will have to get them on-boarding process.",
+         "resume_missing": "The resume does not show any salesforce certifications",
+         "comment":"The candidate does not have any of the mentioned Salesforce certifications as of now."
+     },
+    "cloud_feature_value_communication": {
+      "required": "Leader, who can communicate the value of Cloud features",
+      "resume_match": "There is no direct indication if the applicant is a leader who can communicate the value of cloud features",
+        "resume_missing": "No direct evidence of leadership or cloud communication skills.",
+       "comment":"The resume does not show any direct evidence of the leadership qualities of the applicant."
+    },
+   "results_driven_tenacity":{
+        "required":"Results-driven, tenacious, drive to succeed in a fast-paced environment",
+      "resume_match": "The resume shows that the applicant has successfully completed projects which involves development, testing and deployment, showcasing his drive to succeed.",
+      "resume_missing":"",
+         "comment":"The candidate has a track record of successfully completing projects and hence he is results driven and tenacious."
+   },
+   "learn_adapt":{
+      "required":"Ability to learn quickly and adapt to change",
+     "resume_match":"The resume mentions multiple projects with different technologies and use cases, which indicates the candidate has the potential to quickly learn and adapt to change",
+     "resume_missing":"",
+      "comment":"The resume shows that the candidate has worked with a variety of technologies, which indicates that the candidate can quickly adapt to new technologies and environments."
+   },
+  "positive_attitude":{
+    "required":"Positive attitude; ability to motivate others",
+    "resume_match":"The resume does not mention anything regarding the candidate's positive attitude and ability to motivate other",
+    "resume_missing":"No evidence of positive attitude or motivating skills.",
+    "comment":"There is no specific evidence of the candidate's attitude or his ability to motivate others."
+   }
+
+  },
+  "similarity_percentage": "75%",
+  "overall_comment": "The resume shows a good match with the technical requirements of the job, including strong programming skills and experience with relevant technologies. However, the candidate does not have the required years of experience and lacks direct experience with Salesforce platform, certifications, and customer engagement. The candidate has worked with relevant frameworks and tools and has a strong foundational knowledge that makes him a good fit for the role."
+}
